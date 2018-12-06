@@ -1,16 +1,21 @@
 const actions = document.getElementById("select");
 const output = document.getElementById("ats");
-const render= drawing => {
+
+const render = drawing => {
   output.innerHTML = drawing;
 };
+
+var symbol = "*"
+var lineBreak = "<br />"
+var space = "&nbsp;"
 
 const triangle = () => {
   let drawing = '';
   for (let i=0;i<10;i++){
     for (let j=0; j<i+1; j++){
-      drawing+="*";
+      drawing+=symbol;
     };
-    drawing+="<br />";
+    drawing+=lineBreak;
   };
 
   render(drawing);
@@ -20,16 +25,16 @@ const pyramid = () => {
   let drawing = '';
   for (let i=0;i<10;i++){
     for (let z=0; z<10-i;z++){
-      drawing+="&nbsp;";
+      drawing+=space;
     };
     for (let j=0; j<2*i+1; j++){
-      drawing+="*";
+      drawing+=symbol;
     };
     //tarpai tarp zvg
     // for (let j=0; j<i; j++){
     //   drawing+="* ";
     // };
-    drawing+="<br />";
+    drawing+=lineBreak;
   };
 
   render(drawing);
@@ -39,12 +44,12 @@ const revPyramid = () => {
   let drawing = '';
   for (let i=10;i>=0;i--){
     for (let z=0; z<10-i;z++){
-      drawing+="&nbsp;";
+      drawing+=space;
     };
     for (let j=0; j<2*i+1; j++){
-      drawing+="*";
+      drawing+=symbol;
     };
-    drawing+="<br />";
+    drawing+=lineBreak;
   };
 
   render(drawing);
